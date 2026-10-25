@@ -1,0 +1,55 @@
+#
+# KawaNaviOS — XcodeGen project definition.
+#
+# Generate the Xcode project on a Mac with:
+#     xcodegen generate        (run from this directory, ios/)
+#
+# The app target links the local Swift package `KawaNavProtocol` (the SPM package whose
+# Package.swift lives one level up, in ios/). The package is what holds all the protocol
+# logic and the unit tests; the app is a thin SwiftUI shell on top of it.
+#
+# If you do not have XcodeGen (`brew install xcodegen`), you can instead:
+#   1. Xcode > File > New > Project > iOS App, name it "KawaNavIOS", Swift, SwiftUI.
+#   2. Delete the generated ContentView.swift / <Name>App.swift.
+#   3. File > Add Package Dependency > Local, point it at this directory (ios/) and add
+#      the product "KawaNavProtocol".
+#   4. Drag in the two files from App/ (KawaNavIOSApp.swift, KawaNavIOS/ContentView.swift)
+#      and App/Info.plist (replace the auto-generated Info.plist, or copy its keys).
+#   5. Enable Bluetooth usage (the Info.plist already carries NSBluetoothAlwaysUsageDescription).
+#
+
+name: KawaNavIOS
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+
+packages:
+  KawaNavProtocol:
+    path: .
+
+targets:
+  KawaNavIOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.kawanavios
+        INFOPLIST_FILE: App/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+    dependencies:
+      - package: KawaNavProtocol
+        product: KawaNavProtocol
+
+schemes:
+  KawaNavIOS:
+    build:
+      targets:
+        KawaNavIOS: all
+    run:
+      config: Debug
