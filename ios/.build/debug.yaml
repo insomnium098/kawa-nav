@@ -1,0 +1,164 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module": ["<KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module>"]
+  "KawaNavProtocolPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module": ["<KawaNavProtocolPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.module": ["<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test": ["<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test>"]
+  "KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module": ["<KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module>"]
+  "test": ["<KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module>","<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test>","<KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module>"]
+default: "main"
+nodes:
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/opt/data/cache/scratch/kawa-nav/ios/Tests/KawaNavProtocolTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaNavProtocol.swiftmodule.o":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaNavProtocol.swiftmodule.o"]
+    description: "Wrapping AST for KawaNavProtocol for debugging"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-modulewrap","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule","-o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaNavProtocol.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeBridge.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeData.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeFrames.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeRequests.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/FrameReader.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaBleManager.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaProtocol.swift"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/sources"]
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/sources"
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolPackageDiscoveredTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolPackageDiscoveredTests.swiftmodule.o"]
+    description: "Wrapping AST for KawaNavProtocolPackageDiscoveredTests for debugging"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-modulewrap","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule","-o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolPackageDiscoveredTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/KawaNavProtocolTests.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/all-discovered-tests.swift"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/sources"]
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/sources"
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/all-discovered-tests.swift":
+    tool: test-discovery-tool
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaProtocolTests.swift.o"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/KawaNavProtocolTests.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/all-discovered-tests.swift"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/KawaNavProtocolPackageTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageTests.swiftmodule"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/KawaNavProtocolPackageTests.swiftmodule.o"]
+    description: "Wrapping AST for KawaNavProtocolPackageTests for debugging"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-modulewrap","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageTests.swiftmodule","-o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/KawaNavProtocolPackageTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.derived/runner.swift"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/sources"]
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/sources"
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.derived/runner.swift"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaNavProtocol.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolPackageDiscoveredTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/KawaNavProtocolPackageTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaNavProtocolTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaProtocolTests.swift.o"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.product/Objects.LinkFileList"
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaNavProtocolTests.swiftmodule.o":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaNavProtocolTests.swiftmodule.o"]
+    description: "Wrapping AST for KawaNavProtocolTests for debugging"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-modulewrap","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule","-o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaNavProtocolTests.swiftmodule.o","-target","x86_64-unknown-linux-gnu"]
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/opt/data/cache/scratch/kawa-nav/ios/Tests/KawaNavProtocolTests/KawaProtocolTests.swift"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/sources"]
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/sources"
+
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt"
+
+  "<KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule"]
+    outputs: ["<KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KawaNavProtocolPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule"]
+    outputs: ["<KawaNavProtocolPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageTests.swiftmodule"]
+    outputs: ["<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test>":
+    tool: phony
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.xctest"]
+    outputs: ["<KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test>"]
+
+  "<KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module>":
+    tool: phony
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule"]
+    outputs: ["<KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module>"]
+
+  "C.KawaNavProtocol-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeBridge.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeData.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeFrames.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeRequests.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/FrameReader.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaBleManager.swift","/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaProtocol.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/sources"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule"]
+    description: "Compiling Swift Module 'KawaNavProtocol' (7 sources)"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-module-name","KawaNavProtocol","-emit-dependencies","-emit-module","-emit-module-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule","-output-file-map","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/output-file-map.json","-parse-as-library","-incremental","-c","@/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/sources","-I","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-enable-batch-mode","-index-store-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-j128","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","ios","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KawaNavProtocolPackageDiscoveredTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/KawaNavProtocolTests.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/all-discovered-tests.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/sources"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule"]
+    description: "Compiling Swift Module 'KawaNavProtocolPackageDiscoveredTests' (2 sources)"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-module-name","KawaNavProtocolPackageDiscoveredTests","-emit-dependencies","-emit-module","-emit-module-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule","-output-file-map","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/sources","-I","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-enable-batch-mode","-index-store-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j128","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","ios","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.derived/runner.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageDiscoveredTests.swiftmodule","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/sources"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'KawaNavProtocolPackageTests' (1 sources)"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-module-name","KawaNavProtocolPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolPackageTests.swiftmodule","-output-file-map","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/sources","-I","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-enable-batch-mode","-index-store-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j128","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","ios","-Xcc","-fno-omit-frame-pointer"]
+
+  "C.KawaNavProtocolPackageTests-x86_64-unknown-linux-gnu-debug.test":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaNavProtocol.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolPackageDiscoveredTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/KawaNavProtocolPackageTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaNavProtocolTests.swiftmodule.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.xctest"]
+    description: "Linking ./.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.xctest"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-L","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug","-o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.xctest","-module-name","KawaNavProtocolPackageTests","-emit-executable","-Xlinker","-rpath=$ORIGIN","@/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.product/Objects.LinkFileList","-target","x86_64-unknown-linux-gnu","-g"]
+
+  "C.KawaNavProtocolTests-x86_64-unknown-linux-gnu-debug.module":
+    tool: shell
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/Tests/KawaNavProtocolTests/KawaProtocolTests.swift","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/swift-version-177306A6CF9A57EF.txt","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocol.swiftmodule","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/sources"]
+    outputs: ["/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/KawaProtocolTests.swift.o","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule"]
+    description: "Compiling Swift Module 'KawaNavProtocolTests' (1 sources)"
+    args: ["/opt/data/cache/scratch/swift/swift-6.1-RELEASE-ubuntu24.04/usr/bin/swiftc","-module-name","KawaNavProtocolTests","-emit-dependencies","-emit-module","-emit-module-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules/KawaNavProtocolTests.swiftmodule","-output-file-map","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolTests.build/sources","-I","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/Modules","-target","x86_64-unknown-linux-gnu","-enable-batch-mode","-index-store-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j128","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","5","-g","-Xcc","-fPIC","-Xcc","-g","-package-name","ios","-Xcc","-fno-omit-frame-pointer"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/","/opt/data/cache/scratch/kawa-nav/ios/Tests/KawaNavProtocolTests/","/opt/data/cache/scratch/kawa-nav/ios/Package.swift","/opt/data/cache/scratch/kawa-nav/ios/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

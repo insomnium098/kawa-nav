@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/master.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.derived/runner.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageTests.build/runner.swiftdeps"
+  }
+}

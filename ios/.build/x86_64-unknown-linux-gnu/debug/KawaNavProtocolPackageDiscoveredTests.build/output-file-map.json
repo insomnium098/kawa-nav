@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/master.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/KawaNavProtocolTests.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/KawaNavProtocolTests.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.derived/all-discovered-tests.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocolPackageDiscoveredTests.build/all-discovered-tests.swiftdeps"
+  }
+}

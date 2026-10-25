@@ -49,7 +49,7 @@ public final class BikeData {
 
     // Debug: frames received per type since connecting, the last one and when.
     public var count = [Int](repeating: 0, count: 256)
-    public var last: [[UInt8]?](repeating: nil, count: 256)
+    public var last: [[UInt8]?] = Array(repeating: nil, count: 256)
     public var lastAt = [Int64](repeating: 0, count: 256)
     public var since: Int64 = 0
 

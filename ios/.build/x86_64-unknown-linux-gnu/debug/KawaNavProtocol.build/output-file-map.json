@@ -1,0 +1,47 @@
+{
+  "": {
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/master.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeBridge.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeBridge.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeData.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeData.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeFrames.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeFrames.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/BikeRequests.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/BikeRequests.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/FrameReader.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/FrameReader.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaBleManager.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaBleManager.swiftdeps"
+  },
+  "/opt/data/cache/scratch/kawa-nav/ios/Sources/KawaNavProtocol/KawaProtocol.swift": {
+    "dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.d",
+    "object": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swift.o",
+    "swiftmodule": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol~partial.swiftmodule",
+    "swift-dependencies": "/opt/data/cache/scratch/kawa-nav/ios/.build/x86_64-unknown-linux-gnu/debug/KawaNavProtocol.build/KawaProtocol.swiftdeps"
+  }
+}

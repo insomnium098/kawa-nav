@@ -263,9 +263,9 @@ public final class KawaBleManager: NSObject, CBCentralManagerDelegate, CBPeriphe
     }
 
     private func enableNotifies() {
-        guard let p = peripheral, let service = p.services?.first {
-            $0.uuid == CBUUID(string: KawaProtocol.serviceUUID)
-        } else { return }
+        guard let p = peripheral else { return }
+        let service = p.services?.first { $0.uuid == CBUUID(string: KawaProtocol.serviceUUID) }
+        guard let service = service else { return }
         let chars = KawaProtocol.notifyCharUUIDs
             .compactMap { uuid in service.characteristics?.first { $0.uuid == CBUUID(string: uuid) } }
         if chars.count < KawaProtocol.notifyCharUUIDs.count {

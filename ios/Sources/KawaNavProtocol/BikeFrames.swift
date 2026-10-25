@@ -77,7 +77,7 @@ public class Frame {
 public final class Ack: Frame {
     public let cmd: Int
     public let result: Int
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         cmd = FrameReader.u8(v, 3)
         result = FrameReader.u8(v, 4)
         super.init(v)
@@ -90,7 +90,7 @@ public final class Status: Frame {
     public let block: Int
     public let result: Int
     public let text: String?
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         let blockResult = FrameReader.u8(v, 1) == 0x0C && FrameReader.blockPresent(v, 5)
         self.block = blockResult ? FrameReader.u8(v, 6) : -1
         self.result = blockResult ? FrameReader.u8(v, 7) : -1
@@ -103,8 +103,8 @@ public final class Status: Frame {
 public final class ModelInfo: Frame {
     public let model: String?
     public let vin: String?
-    init(_ v: [UInt8]) {
-        var parts = [String?, String?, String?]
+    override init(_ v: [UInt8]) {
+        var parts: [String?] = [nil, nil, nil]
         var i = 5
         while i + 1 < v.count {
             let tag = FrameReader.u8(v, i + 1)
@@ -113,7 +113,7 @@ public final class ModelInfo: Frame {
             for k in (i + 2)..<min(i + 10, v.count) {
                 let c = Int(v[k])
                 if c == 0xFF || c == 0 { break }
-                if c >= 0x20 && c < 0x7F { sb.append(UnicodeScalar(c)!) }
+                if c >= 0x20 && c < 0x7F { sb.append(Character(UnicodeScalar(c)!)) }
             }
             parts[tag - 0x71] = sb.trimmingCharacters(in: .whitespaces)
             i += 10
@@ -142,7 +142,7 @@ public final class GeneralCaps: Frame {
     public let turnByTurn: Bool
     public let statusIcons: Bool
 
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         var clockSettable = [Bool](repeating: false, count: 6)
         var subcaps = [Int](repeating: 0, count: 4)
         let valid = v.count < 15 || !retryRequired(v, 5, 6, 14)
@@ -182,7 +182,8 @@ public final class GeneralCaps: Frame {
         super.init(v)
     }
 
-    public func clockSettable() -> Bool {
+    /// Every clock field settable (the dash allows setting the whole clock).
+    public func clockSettableAll() -> Bool {
         for b in self.clockSettable where !b { return false }
         return true
     }
@@ -194,7 +195,7 @@ func retryRequired(_ v: [UInt8], _ a: Int, _ b: Int, _ flag: Int) -> Bool {
 }
 
 /// One 2-bit (or 4-bit) support flag of a config frame.
-public struct Flag {
+public struct Flag: Equatable {
     public let name: String
     let index: Int
     let mask: Int
@@ -203,6 +204,7 @@ public struct Flag {
         self.index = index
         self.mask = mask
     }
+    public static func == (a: Flag, b: Flag) -> Bool { a.name == b.name }
 }
 
 /// 0x40: which vehicle-info and riding-log values this bike has (Ble5Value.i). 0 or 1: yes, 3: no.
@@ -265,7 +267,7 @@ public final class InfoConfig: Frame {
 
     public let valid: Bool
 
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         valid = v.count >= 35 && !(retryRequired(v, 5, 6, 14) || retryRequired(v, 15, 16, 24)
             || retryRequired(v, 25, 26, 34))
         super.init(v)
@@ -327,7 +329,7 @@ public final class TuningConfig: Frame {
 
     public let valid: Bool
 
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         valid = !(retryRequired(v, 5, 6, 14) || retryRequired(v, 15, 16, 24))
         super.init(v)
     }
@@ -346,7 +348,7 @@ public final class TuningConfig: Frame {
     }
 
     public func any() -> Bool {
-        for f in all where f != TuningConfig.ECU && f != TuningConfig.METER && supported(f) { return true }
+        for f in TuningConfig.all where f != TuningConfig.ECU && f != TuningConfig.METER && supported(f) { return true }
         return false
     }
 }
@@ -777,7 +779,7 @@ public final class ImuSusp: Frame {
     public let verticalG: Double?
     public let lateralG: Double?
 
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         var rearStrokeMm: Double?; var frontStrokeMm: Double?
         var rearStrokeSpeed: Double?; var frontStrokeSpeed: Double?
         var axG: Double?; var ayG: Double?; var azG: Double?
@@ -985,7 +987,7 @@ public final class ServiceConfig: Frame {
     public static let capability = 0, notify = 1, month = 2, day = 3, year = 4, distance = 5
     public let valid: Bool
 
-    init(_ v: [UInt8]) {
+    override init(_ v: [UInt8]) {
         valid = v.count >= 15 && FrameReader.blockPresent(v, 5)
         super.init(v)
     }
@@ -1079,8 +1081,9 @@ public final class Decoder {
             && v.count < Int(v[1]) + 3 {
             if !shortFrameLogged {
                 shortFrameLogged = true
-                print("Bike: dropping short " + BikeFrames.name(type) + " frames (" + v.count
-                    + " of " + (Int(v[1]) + 3) + " bytes): the values were never sent")
+                let n = v.count
+                let expected = Int(v[1]) + 3
+                print("Bike: dropping short frame type \(type) (\(n) of \(expected) bytes)")
             }
             return nil
         }

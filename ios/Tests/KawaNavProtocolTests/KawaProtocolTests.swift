@@ -61,28 +61,28 @@ final class KawaProtocolTests: XCTestCase {
         // From docs/PROTOCOL.md: "right in 250 m" (35 bytes, 10 of padding after the distance block)
         let frame = KawaProtocol.naviFrame(flag: 0, turn: 2, unit: 1, distance: 250)
         XCTAssertEqual(KawaProtocol.hex(frame),
-            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 02 00 00 FA FF FF FF FF FF FF FF FF FF FF FF FF FF")
+            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 02 00 00 FA FF FF FF FF FF FF FF FF FF FF FF FF FF FF")
     }
 
     func testNaviFrameLeftIn80m() {
         // "left in 80 m" (35 bytes)
         let frame = KawaProtocol.naviFrame(flag: 0, turn: 1, unit: 1, distance: 80)
         XCTAssertEqual(KawaProtocol.hex(frame),
-            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 01 00 00 50 FF FF FF FF FF FF FF FF FF FF FF FF FF")
+            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 01 00 00 50 FF FF FF FF FF FF FF FF FF FF FF FF FF FF")
     }
 
     func testNaviFrameRoundaboutExit2() {
         // "roundabout exit 2 400m" (35 bytes)
         let frame = KawaProtocol.naviFrame(flag: 0, turn: 31, unit: 1, distance: 400)
         XCTAssertEqual(KawaProtocol.hex(frame),
-            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 1F 00 01 90 FF FF FF FF FF FF FF FF FF FF FF FF FF")
+            "14 08 00 FF FF 05 70 00 FF FF FF FF FF 10 FF 05 71 1F 00 01 90 FF FF FF FF FF FF FF FF FF FF FF FF FF FF")
     }
 
     func testClearFrame() {
         // "clear / no navigation" (35 bytes)
         let frame = KawaProtocol.clearFrame()
         XCTAssertEqual(KawaProtocol.hex(frame),
-            "14 08 00 FF FF 05 70 30 FF FF FF FF FF F0 FF 05 71 FF 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF")
+            "14 08 00 FF FF 05 70 30 FF FF FF FF FF F0 FF 05 71 FF 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF FF FF")
     }
 
     func testMeterIndicationFrame() {
@@ -153,9 +153,9 @@ final class DecoderTests: XCTestCase {
     func testModelInfoVin() {
         // 03 20 00 FF FF 02 71 "ML5ER500" 02 72 "FADA5555" 02 73 "8\0..."
         var v: [UInt8] = [0x03, 0x20, 0, 0xFF, 0xFF]
-        v += [0x02, 0x71] + "ML5ER500".map { UInt8($0) }
-        v += [0x02, 0x72] + "FADA5555".map { UInt8($0) }
-        v += [0x02, 0x73] + "8".map { UInt8($0) } + [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
+        v += [0x02, 0x71] + Array("ML5ER500".utf8)
+        v += [0x02, 0x72] + Array("FADA5555".utf8)
+        v += [0x02, 0x73] + Array("8".utf8) + [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
         let f = dec.decode(v) as? ModelInfo
         XCTAssertEqual(f?.model, "ML5ER500")
         XCTAssertEqual(f?.vin, "ML5ER500FADA55558")
@@ -190,7 +190,7 @@ final class DecoderTests: XCTestCase {
         dec.info = {
             var v = [UInt8](repeating: 0xFF, count: 35)
             v[0] = 0x40; v[1] = 32; v[5] = 0x05; v[6] = 0x00; v[9] = 0x00
-            return dec.decode(v) as! InfoConfig
+            return (dec.decode(v) as? InfoConfig)!
         }()
         var v = [UInt8](repeating: 0xFF, count: 25)
         v[0] = 0x4A; v[1] = 22
@@ -206,7 +206,7 @@ final class DecoderTests: XCTestCase {
             var c = [UInt8](repeating: 0xFF, count: 35)
             c[0] = 0x40; c[1] = 32; c[5] = 0x05; c[6] = 0x00
             c[9] = 0x00   // wheel speed mode 0, engine speed mode 0
-            return dec.decode(c) as! InfoConfig
+            return (dec.decode(c) as? InfoConfig)!
         }()
         // rpm bytes 11-12: (0x04 & 0x7F) << 8 | 0x00 = 1024 rpm (mode 0 reads the raw 15-bit)
         var v = [UInt8](repeating: 0xFF, count: 25)
@@ -231,7 +231,7 @@ final class DecoderTests: XCTestCase {
             c[0] = 0x40; c[1] = 32; c[5] = 0x05; c[6] = 0x00
             c[27] = 0x00   // odometer present (nibble 0)
             c[33] = 0x00   // no valid-bit for odometer (so value counts)
-            return dec.decode(c) as! InfoConfig
+            return (dec.decode(c) as? InfoConfig)!
         }()
         var v = [UInt8](repeating: 0xFF, count: 55)
         v[0] = 0x41; v[1] = 52
@@ -251,7 +251,7 @@ final class DecoderTests: XCTestCase {
             c[0] = 0x40; c[1] = 32; c[5] = 0x05; c[6] = 0x00
             c[31] = 0x00   // instant fuel nibble 0 (present0)
             c[33] = 0x00   // no valid bit
-            return dec.decode(c) as! InfoConfig
+            return (dec.decode(c) as? InfoConfig)!
         }()
         var v = [UInt8](repeating: 0xFF, count: 55)
         v[0] = 0x45; v[1] = 52
